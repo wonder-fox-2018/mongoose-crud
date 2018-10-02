@@ -16,7 +16,7 @@ class Controller {
             }else {
                 res.status(200).json(newCustomer)
             }
-          });
+        });
     }
 
     static read(req,res){
