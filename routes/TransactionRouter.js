@@ -14,4 +14,14 @@ router.get('/lists', (req,res)=>{
     TransactionController.getListOfTransactions(req,res)
 })
 
+// update transaction
+router.put('/:id', (req,res)=>{
+    TransactionController.updateTransactionDataById(req,res)
+})
+
+// delete transaction
+router.delete('/:id', (req,res) =>{
+    TransactionController.deleteTransactionDataById(req,res)
+})
+
 module.exports = router

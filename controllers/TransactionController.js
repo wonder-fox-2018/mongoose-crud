@@ -40,6 +40,47 @@ class TransactionController{
             })
         })
     }
+
+    // edit transaction data
+    static updateTransactionDataById(req,res){
+        Transaction.findOneAndUpdate({
+            _id: req.params.id
+        },{
+            member: req.body.member,
+            days: Number(req.body.days),
+            fine: Number(req.body.fine),
+            booklist: req.body.booklist
+        })
+        .then(transaction =>{
+            res.status(200).json({
+                msg: 'Transaction has been updated',
+                data: transaction
+            })
+        })
+        .catch(error =>{
+            res.status(500).json({
+                msg: 'ERROR: ',error
+            })
+        })
+    }
+
+    // delete transaction
+    static deleteTransactionDataById(req,res){
+        Transaction.findOneAndRemove({
+            _id: req.params.id
+        })
+        .then(transaction =>{
+            res.status(200).json({
+                msg: 'Transaction has been deleted',
+                data: transaction
+            })
+        })
+        .catch(error =>{
+            res.status(500).json({
+                msg: 'ERROR: ',error
+            })
+        })
+    }
 }
 
 module.exports = TransactionController
