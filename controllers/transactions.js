@@ -6,6 +6,7 @@ module.exports = {
 
     list: (req, res) => {
         Transaction.find()
+        .populate('member')
         .populate('booklist')
         .exec(function (err, transactions) {
             if (err) {
