@@ -10,12 +10,12 @@ const transactionSchema = new Schema({
         type: Number,
         required: true
     },
-	outdate: {
+	out_date: {
 		type: Date,
 		default: new Date()
     },
-	duedate: Date,
-	indate: {
+	due_date: Date,
+	in_date: {
         type: Date,
         required: true
     },

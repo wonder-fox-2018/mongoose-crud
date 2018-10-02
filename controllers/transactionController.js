@@ -35,10 +35,10 @@ module.exports = {
         Transaction.create({
             member: req.body.member,
             days: req.body.days,
-            outdate: req.body.outdate,
-            duedate: generateDueDate(req.body.outdate, req.body.days),
-            indate: req.body.indate,
-            fine: generateFine(req.body.outdate, req.body.indate, req.body.days),
+            out_date: req.body.out_date,
+            due_date: generateDueDate(req.body.out_date, req.body.days),
+            in_date: req.body.in_date,
+            fine: generateFine(req.body.out_date, req.body.in_date, req.body.days),
             booklist: req.body.booklist
         })
         .then(data => {
@@ -50,7 +50,7 @@ module.exports = {
     },
 
     edit: function (req, res) {
-        if (!req.body.member || !req.body.days || !req.body.outdate || !req.body.indate || !req.body.booklist) {
+        if (!req.body.member || !req.body.days || !req.body.out_date || !req.body.in_date || !req.body.booklist) {
             res.status(500).json({message: 'You must input the value of every field in the transaction datum even if some values are unchanged'})
         } else {
             Transaction.updateOne({
@@ -58,10 +58,10 @@ module.exports = {
             }, {
                 member: req.body.member,
                 days: req.body.days,
-                outdate: req.body.outdate,
-                duedate: generateDueDate(req.body.outdate, req.body.days),
-                indate: req.body.indate,
-                fine: generateFine(req.body.outdate, req.body.indate, req.body.days),
+                out_date: req.body.out_date,
+                due_date: generateDueDate(req.body.out_date, req.body.days),
+                in_date: req.body.in_date,
+                fine: generateFine(req.body.out_date, req.body.in_date, req.body.days),
                 booklist: req.body.booklist
             })
             .then(() => {
