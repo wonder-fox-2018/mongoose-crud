@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 module.exports = Transaction = mongoose.model('Transaction', new Schema(
     {
-        member : String,
+        member : {type : Schema.Types.ObjectId, ref: 'Customer'},
         days : Number,
         out_date : Date,
         due_date : Date,

@@ -3,72 +3,54 @@ const Book = require('../models/book.js')
 module.exports = {
 
     findAll : (req,res)=>{
-        Book.find({}, (err, books)=>{
-            if(!err) res.status(200).json({
-                data : books
-            })
-            else res.status(500).json({
-                errors : err
-            })
-        })
+        Book.find({})
+        .then((books) => {
+            res.status(200).json({data : books})
+        }).catch((err) => {
+            res.status(500).json({errors : err})
+        });
     },
 
     findById : (req,res)=>{
-        Book.findById(req.params.id,(err, book)=>{
-            if(!err) res.status(200).json({
-                data : book
-            })
-            else res.status(500).json({
-                errors : err
-            })
-        })
+        Book.findById(req.params.id)
+        .then((book) => {
+            res.status(200).json({data : book})
+        }).catch((err) => {
+            res.status(500).json({errors : err})
+        });
     },
 
     create : (req,res)=>{
-        Book.create({
-            isbn : req.body.isbn,
-            title : req.body.title,
-            author : req.body.author,
-            category : req.body.category,
-            stock : req.body.stock
-        }, (err, result)=>{
-            if(!err) res.status(200).json({
-                data : result
-            })
-            else res.status(500).json({
-                errors : err
-            })
-        })
+        
+        let {isbn,title,author,category,stock} = req.body
+        
+        Book.create(new Book({isbn,title,author,category,stock}))
+        .then((book) => {
+            res.status(200).json({data : book})
+        }).catch((err) => {
+            res.status(500).json({errors : err})
+        });
+
     },
 
     update : (req,res)=>{
-        Book.findByIdAndUpdate(req.params.id, {
-            isbn : req.body.isbn,
-            title : req.body.title,
-            author : req.body.author,
-            category : req.body.category,
-            stock : req.body.stock
-        },(err, result)=>{
-            if(!err) res.status(200).json({
-                OldData : result
-            })
-            else res.status(500).json({
-                errors : err
-            })
-        })
+        let {isbn,title,author,category,stock} = req.body
+
+        Book.findByIdAndUpdate(req.params.id, {isbn,title,author,category,stock})
+        .then((result) => {
+            res.status(200).json({data : result})
+        }).catch((err) => {
+            res.status(500).json({errors : err})
+        });
     },
 
     delete : (req,res)=>{
-        Book.deleteOne({
-            _id : req.params.id
-        },(err,result)=>{
-            if(!err) res.status(200).json({
-                data : result
-            })
-            else res.status(500).json({
-                errors : err
-            })
-        })
+        Book.deleteOne({_id : req.params.id})
+        .then((result) => {
+            res.status(200).json({data : result})
+        }).catch((err) => {
+            res.status(500).json({errors : err})
+        });
     }
 
 

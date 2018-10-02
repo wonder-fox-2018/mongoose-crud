@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const bookController = require('../controllers/bookController.js')
 const customerController = require('../controllers/customerController.js')
+const transactionController = require('../controllers/transactionController.js')
 
 // /api
 router
@@ -16,6 +17,13 @@ router
 .get('/customers/:id', customerController.findById)
 .put('/customers/:id', customerController.update)
 .delete('/customers/:id', customerController.delete)
+
+router
+.get('/transactions', transactionController.findAll)
+.post('/transactions', transactionController.create)
+.get('/transactions/:id', transactionController.findById)
+.put('/transactions/:id', transactionController.update)
+.delete('/transactions/:id', transactionController.delete)
 
 
 module.exports = router
