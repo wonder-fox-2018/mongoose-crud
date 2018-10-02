@@ -1,8 +1,37 @@
 # mongoose-crud
 
-| Route                  | HTTP   | Descriptions                                               |
-|------------------------|--------|------------------------------------------------------------|
-| /api/books             | GET    | Get all the book  info                                     |
-| /api/libraries         | POST   | Create a book                                              |
-| /api/libraries/:id     | DELETE | Delete a book                                              |
-| /api/libraries/:id     | PUT    | Update a book with new info                                |
+
+| Route                 | HTTP   | Descriptions                  |
+|-----------------------|--------|-------------------------------|
+| /api/books            | GET    | Get all the books info        |
+| /api/books/:id        | POST   | Create a new book             |
+| /api/books/:id        | PUT    | update a book                 |
+| /api/books/:id        | DELETE | delete a book                 |
+| /api/customers        | GET    | Get all the customers info    |
+| /api/customers/:id    | POST   | Create a new customer         |
+| /api/customers/:id    | PUT    | update a customer             |
+| /api/customers/:id    | DELETE | delete a customer             |
+| /api/transactions     | GET    | Get all the transactions info |
+| /api/transactions/:id | POST   | Create a new transaction      |
+| /api/transactions/:id | PUT    | update a transaction          |
+| /api/transactions/:id | DELETE | delete a transaction          |
+
+
+
+
+
+|Route|HTTP|Descriptions|
+|-|-|-|
+|/api/books|GET|Get all the books info|
+|/api/books/:id|POST|Create a new book|
+|/api/books/:id|PUT|update a book|
+|/api/books/:id|DELETE|delete a book|
+|/api/customers|GET|Get all the customers info|
+|/api/customers/:id|POST|Create a new customer|
+|/api/customers/:id|PUT|update a customer|
+|/api/customers/:id|DELETE|delete a customer|
+|/api/transactions|GET|Get all the transactions info|
+|/api/transactions/:id|POST|Create a new transaction|
+|/api/transactions/:id|PUT|update a transaction|
+|/api/transactions/:id|DELETE|delete a transaction|
+
