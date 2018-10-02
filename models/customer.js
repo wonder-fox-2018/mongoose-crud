@@ -16,4 +16,5 @@ module.exports = Customer = mongoose.model('Customer', new Schema(
             unique : true
         }
     }
-).plugin(uniqueValidator))
+)
+.plugin(uniqueValidator))

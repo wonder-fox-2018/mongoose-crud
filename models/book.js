@@ -17,5 +17,10 @@ module.exports = Book = mongoose.model('Book', new Schema(
         category : String,
         stock : Number
     }
-).plugin(uniqueValidator))
+)
+.plugin(uniqueValidator)
+.pre('save',function(next){
+    this.author = 'Mr./Mrs. '+this.author
+    next()
+}))
 
