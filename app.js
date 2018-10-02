@@ -8,11 +8,12 @@ var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
 var transactionsRouter = require('./routes/transactions');
 var customersRouter = require('./routes/customers');
+require('dotenv').config()
 
 var app = express();
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/library', { useNewUrlParser: true });
+mongoose.connect(process.env.dburl, { useNewUrlParser: true });
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
