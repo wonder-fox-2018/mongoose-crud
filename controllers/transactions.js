@@ -23,17 +23,11 @@ module.exports = {
     },
 
     insert: (req, res) => {
-        let arrBook = []
-        req.body.booklist.forEach(elem => {
-            bookId = ObjectId(elem)
-            arrBook.push(bookId)
-        });
-
         let trans = new Transaction({
             member: req.body.member,
             days: req.body.days,
             due_date: dueDate(req.body.days),
-            booklist: arrBook
+            booklist: req.body.booklist
         });
 
         trans.save(function (err) {
