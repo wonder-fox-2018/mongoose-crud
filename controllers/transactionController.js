@@ -23,7 +23,14 @@ module.exports = {
     },
 
     update: (req, res) => {
-        
+        let {member, days, out_date,due_date,in_date,fine,booklist} = req.body;
+        console.log('masul');
+        Transaction.updateOne({_id: req.params.id}, {member, days, out_date,due_date,in_date,fine,booklist})
+            .then((raw) => {
+                res.status(200).json(raw);
+            }).catch((err) => {
+                res.status(500).json(err);
+            });
     },
 
     delete: (req, res) => {
@@ -45,3 +52,10 @@ module.exports = {
         });
     }
 };
+
+/* 
+if err try this
+sudo rm /var/lib/mongodb/mongod.lock
+sudo mongod --repair
+sudo service mongodb restart
+sudo service mongod status*/

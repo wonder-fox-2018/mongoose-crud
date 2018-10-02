@@ -9,4 +9,6 @@ router.delete('/:id', TransactionController.delete);
 
 router.get('/:id', TransactionController.findById);
 
+router.put('/:id', TransactionController.update);
+
 module.exports = router;
