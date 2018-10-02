@@ -4,16 +4,33 @@ var Schema = mongoose.Schema
 var transactionSchema = new Schema ({
     member: {
         type: Schema.Types.ObjectId,
-        ref: 'Customer'
+        ref: 'Customer',
+        required: true
     },
-    days: Number,
-    out_date: Date,
-    due_date: Date,
-    in_date: Date,
-    fine: Number,
+    days:  {
+        type: Number,
+        required: true
+      },
+    out_date:  {
+        type: Date,
+        required: true
+      },
+    due_date:  {
+        type: Date,
+        required: true
+      },
+    in_date:  {
+        type: Date,
+        required: true
+      },
+    fine:  {
+        type: Number,
+        required: true
+      },
     bookList: [{
         type: Schema.Types.ObjectId,
-        ref: 'Book'
+        ref: 'Book',
+        required: true
     }]
 })
 
