@@ -20,7 +20,8 @@ const customerSchema = new Schema({
   },
   phone: {
     type: String,
-    required: [true, 'is required']
+    required: [true, 'is required'],
+    maxlength: [13, 'maximal 13 character']
   }
 }, {
   timestamps: true

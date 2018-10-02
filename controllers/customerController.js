@@ -51,6 +51,7 @@ module.exports = {
     })
     .catch((err) => {
       res.status(500).json({
+        errors: err,
         message: 'insert customer failed'
       })
     })
