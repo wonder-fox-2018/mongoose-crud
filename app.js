@@ -7,11 +7,13 @@ mongoose.connect('mongodb://localhost:27017/librarymongoosecruddb', {useNewUrlPa
 
 const BookRouter = require('./routes/BookRouter')
 const CustomerRouter = require('./routes/CustomerRouter')
+const TransactionRouter = require('./routes/TransactionRouter')
 
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
 app.use('/books', BookRouter)
 app.use('/customers', CustomerRouter)
+app.use('/transactions', TransactionRouter)
 
 app.get('/',(req,res)=>{
     res.send('Base Set Up OK')
