@@ -10,6 +10,6 @@ const customerSchema = new Schema({
     phone: String
 });
 
-var Customer = mongoose.Schema('Customer', customerSchema);
+var Customer = mongoose.model('Customer', customerSchema);
 
 module.exports = Customer;
