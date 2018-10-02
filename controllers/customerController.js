@@ -38,10 +38,14 @@ module.exports = {
         
         Customer.findByIdAndUpdate(req.params.id, {name,memberid,address,zipcode,phone})
         .then((result) => {
-            res.status(200).json({data : result})
-        }).catch((err) => {
-            res.status(500).json({errors : err})
-        });
+            return Customer.findById(req.params.id)
+        })
+        .then((newObj)=>{
+            res.status(200).json({data : newObj})
+        })
+        .catch((err) => {
+            res.status(500).json({errors : err})  
+        })
 
     },
 

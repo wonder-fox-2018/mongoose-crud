@@ -38,10 +38,14 @@ module.exports = {
 
         Book.findByIdAndUpdate(req.params.id, {isbn,title,author,category,stock})
         .then((result) => {
-            res.status(200).json({data : result})
-        }).catch((err) => {
-            res.status(500).json({errors : err})
-        });
+            return Book.findById(req.params.id)
+        })
+        .then((newObj)=>{
+            res.status(200).json({data : newObj})
+        })
+        .catch((err) => {
+            res.status(500).json({errors : err})  
+        })
     },
 
     delete : (req,res)=>{
