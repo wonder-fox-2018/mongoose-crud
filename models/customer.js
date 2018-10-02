@@ -1,12 +1,15 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 
-const Customer = new Schema({
-    _id: ObjectId,
+
+const customerSchema = new Schema({
     name: String,
     memberid: String,
     address: String,
     zipcode: String,
     phone: String
 });
+
+var Customer = mongoose.Schema('Customer', customerSchema);
+
+module.exports = Customer;

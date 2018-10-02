@@ -1,14 +1,19 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const Customer = require('./customer');
+const Book = require('./book');
 
-const Transaction = new Schema({
+const transactionSchema = new Schema({
     _id: ObjectId,
-    member: {type: Schema.type.ObjectId, ref: mongoose.model('customers', Schema)},
+    member: {type: Schema.type.ObjectId, ref: Customer},
     days: Number,
     out_date: Date,
     due_date: Date,
     in_date: Date,
     fine: Number,
-    boooklist: [{type: Schema.type.ObjectId, ref: mongoose.model('books', Schema)}]
+    boooklist: [{type: Schema.type.ObjectId, ref: Book}]
 });
+
+var Transaction = mongoose.Schema('Transaction', transactionSchema);
+
+module.exports = Transaction;
