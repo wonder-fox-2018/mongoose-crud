@@ -16,12 +16,19 @@ const customerSchema = new Schema({
   },
   zipcode: {
     type: Number,
-    required: [true, 'is required']
+    required: [true, 'is required'],
+    maxlength: [6, 'maximal 6character']
   },
   phone: {
     type: String,
+    validate: {
+      validator: function(v) {
+        return /\d{4}-\d{4}-\d{4}/.test(v);
+      },
+      message: props => `${props.value} is not a valid phone number!`
+    },
     required: [true, 'is required'],
-    maxlength: [13, 'maximal 13 character']
+    maxlength: [16, 'maximal 16 character']
   }
 }, {
   timestamps: true
