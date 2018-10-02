@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:27017/wonder-mongoose-crud', {useNewUrlPar
 
 var booksRouter = require('./routes/books');
 var customersRouter = require('./routes/customers');
-// var transactionsRouter = require('./routes/transactions');
+var transactionsRouter = require('./routes/transactions');
 
 var app = express();
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/books', booksRouter);
 app.use('/customers', customersRouter);
-// app.use('/transactions', transactionsRouter);
+app.use('/transactions', transactionsRouter);
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
